@@ -1,5 +1,12 @@
 // Functions
 
+function initialeSichtbarkeit() { // Funktion um zu überprüfen, ob das Frage div sichtbar ist
+    frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
+    if ("frage_div_" + frageCounter) { 
+        document.getElementById("frage_div_" + frageCounter).classList.remove("hidden"); // Entferne die hidden Klasse um Fragen anzuzeigen
+    }
+}
+
 function initialisiereFrageCounter() { // Erstellt den Frage Counter, falls er noch nicht existiert
     if (localStorage.getItem("localFrageCounter")) 
         return;
@@ -54,3 +61,4 @@ function submitSingleAntwort(frageId, frageDivId, inputAnswer) { // Funktion zum
 }
 
 initialisiereFrageCounter(); // Initialisiere den Frage Counter beim Laden der Seite
+initialeSichtbarkeit(); // Überprüfe die Sichtbarkeit der Fragen beim Laden der Seite
