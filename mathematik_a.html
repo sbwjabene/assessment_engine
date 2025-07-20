@@ -21,6 +21,19 @@
         <button id="button_1" onclick="submitFreifeldAntwort(2,100,'question_1', document.getElementById('antwort_1').value, 'frage_div_1')">Nächste Frage</button>
     </div>
 
+    <div id="frage_div_2" class="hidden">
+        <h2>Freifeld-Fragen</h2>
+        <p>Bei Freifeldfragen müssen sie eine Eingabe im entsprechenden Textfeld machen. <br> 
+            Achten sie dabei auf die Mindest- und Maximalanzahl der Zeichen. <br>
+            Klicken sie auf "Antwort überprüfen", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3> Frage 2</h3>
+        <p id="frage_2">Was ist eine Gruppe?</p>
+
+        <textarea class="textarea" id="antwort_2" placeholder="Geben Sie Ihre Antwort hier ein... Sie müssen zwischen 10 und 1000 Zeichen eingeben."></textarea>
+        <button id="button_2" onclick="submitFreifeldAntwort(2,100,'frage_2',document.getElementById('antwort_2').value,'frage_div_2')">Nächste Frage</button>
+    </div>
+
+
 <!-- Single-Choice Fragen -->
     <div>
 
