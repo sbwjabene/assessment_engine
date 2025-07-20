@@ -33,3 +33,15 @@ function submitFreifeldAntwort(minLength, maxLength, frageId, inputAnswer, frage
         alert(`Deine Antwort muss zwischen ${minLength} und ${maxLength} Zeichen liegen.`); // Show error Nachricht
     }
 }
+
+function submitSingleAntwort(frageId, frageDivId, inputAnswer) { // Funktion zum Absenden von Single-Choice Antworten
+    frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
+    if (inputAnswer) {
+        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speicher die Frage im local storage
+        localStorage.setItem(`${frageId}`, JSON.stringify(inputAnswer));
+        document.getElementById(frageDivId).classList.add("hidden");
+        nächsteFrage();
+    } else {
+        alert("Bitte wähle eine Antwort aus.");
+    }
+}
