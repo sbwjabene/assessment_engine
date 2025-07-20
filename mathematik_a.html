@@ -35,8 +35,20 @@
 
 
 <!-- Single-Choice Fragen -->
-    <div>
+    <div id="frage_div_3" class="hidden">
+        <h2>Single-Choice Fragen</h2>
+        <p>Bei Single-Choice Fragen müssen sie eine der vorgegebenen Antworten auswählen. <br> 
+            Klicken sie auf "Antwort überprüfen", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3>Frage 3</h3>
+        <p id="frage_3">Was ist die kleinste natürliche Zahl unter den folgenden Optionen?</p>
 
+        <input type="radio" name="frage_3" value="-100"> -100 <br>
+        <input type="radio" name="frage_3" value="-99"> -99 <br>
+        <input type="radio" name="frage_3" value="-1"> 0,1 <br>
+        <input type="radio" name="frage_3" value="1"> 1 <br>
+        <br>
+
+        <button id="button_3" onclick="submitSingleAntwort('frage_3', 'frage_div_3', document.querySelector('input[name=\'frage_3\']:checked').value)">Nächste Frage</button>
     </div>
 
 <!-- Multiple-Choice Fragen -->
