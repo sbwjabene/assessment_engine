@@ -1,5 +1,12 @@
 // Functions
 
+function initialisiereFrageCounter() { // Erstellt den Frage Counter, falls er noch nicht existiert
+    if (localStorage.getItem("localFrageCounter")) 
+        return;
+    else 
+        localStorage.setItem("localFrageCounter", JSON.stringify(1)); // Speichert den initialen Counter im local storage
+}
+
 function nächsteFrage() {
     frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
     frageCounter += 1;
@@ -45,3 +52,5 @@ function submitSingleAntwort(frageId, frageDivId, inputAnswer) { // Funktion zum
         alert("Bitte wähle eine Antwort aus.");
     }
 }
+
+initialisiereFrageCounter(); // Initialisiere den Frage Counter beim Laden der Seite
