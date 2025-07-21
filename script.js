@@ -60,5 +60,25 @@ function submitSingleAntwort(frageId, frageDivId, inputAnswer) { // Funktion zum
     }
 }
 
+function submitMultipleAntwort(frageId, frageDivId) { // Funktion zum Absenden der Multiple-Choice Antworten
+    const selectedCheckboxes = document.querySelectorAll(`input[name="${frageId}"]:checked`); // Get all selected checkboxes
+    frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
+    if (selectedCheckboxes.length > 0) {
+        let checkedValues = [];
+        selectedCheckboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                checkedValues.push(checkbox.value); // Added alle Werte der ausgewählten Checkboxen in das Array
+            }
+        });
+        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speichert Frage im local storage
+        localStorage.setItem(`${frageId}`, JSON.stringify(checkedValues)); // Speichert das Array der ausgewählten Werte im local storage
+
+        document.getElementById(frageDivId).classList.add("hidden");
+        nächsteFrage();
+    } else {
+        alert("Bitte wähle mindestens eine Antwort aus.");
+    }
+}
+
 initialisiereFrageCounter(); // Initialisiere den Frage Counter beim Laden der Seite
 initialeSichtbarkeit(); // Überprüfe die Sichtbarkeit der Fragen beim Laden der Seite
