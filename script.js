@@ -80,5 +80,19 @@ function submitMultipleAntwort(frageId, frageDivId) { // Funktion zum Absenden d
     }
 }
 
+function zeigeAntworten() { // Funktion um alle Antworten aus dem local storage anzuzeigen und danach zu löschen
+    const frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
+    for (let i = 1; i <= frageCounter-1; i++) {
+        const frage = JSON.parse(localStorage.getItem("antwort_" + i));
+        const antwort = JSON.parse(localStorage.getItem("frage_" + i));
+        const p = document.createElement("p");
+        p.innerHTML = `${frage}: <br> ${antwort}`;
+        document.body.appendChild(p); // ✅ Element zur Seite hinzufügen!
+    }
+    localStorage.clear(); // Clear local storage after displaying answers
+}
+
+// 
+
 initialisiereFrageCounter(); // Initialisiere den Frage Counter beim Laden der Seite
 initialeSichtbarkeit(); // Überprüfe die Sichtbarkeit der Fragen beim Laden der Seite
