@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logik Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Prototype eines Logik Tests</h1>
+
+<!-- Freifeld-Fragen -->
+    <div id="frage_div_1">
+        <h2>Freifeld-Fragen</h2>
+        <p>Bei Freifeldfragen müssen sie eine Eingabe im entsprechenden Textfeld machen. <br> 
+            Achten sie dabei auf die Mindest- und Maximalanzahl der Zeichen. <br>
+            Klicken sie auf "Antwort überprüfen", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3> Frage 1</h3>
+        <p id="frage_1">Was ist eine deduktive Argumentation?</p>
+        <textarea class="textarea" id="antwort_1" placeholder="Geben Sie Ihre Antwort hier ein... Sie müssen zwischen 10 und 1000 Zeichen eingeben."></textarea>
+        <button id="button_1" onclick="submitFreifeldAntwort(10,1000,'frage_1', document.getElementById('antwort_1').value, 'frage_div_1')">Weiter</button>
+    </div>
+
+    <div id="frage_div_2" class="hidden">
+        <h2>Freifeld-Fragen</h2>
+        <p>Bei Freifeldfragen müssen sie eine Eingabe im entsprechenden Textfeld machen. <br> 
+            Achten sie dabei auf die Mindest- und Maximalanzahl der Zeichen. <br>
+            Klicken sie auf "Antwort überprüfen", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3> Frage 2</h3>
+        <p id="frage_2">Was ist die Modallogik und wofür wird sie verwendet?</p>
+
+        <textarea class="textarea" id="antwort_2" placeholder="Geben Sie Ihre Antwort hier ein... Sie müssen zwischen 5 und 1000 Zeichen eingeben."></textarea>
+        <button id="button_2" onclick="submitFreifeldAntwort(5,1000,'frage_2',document.getElementById('antwort_2').value,'frage_div_2')">Weiter</button>
+    </div>
+
+
+<!-- Single-Choice Fragen -->
+    <div id="frage_div_3" class="hidden">
+        <h2>Single-Choice Fragen</h2>
+        <p>Bei Single-Choice Fragen müssen sie eine der vorgegebenen Antworten auswählen. <br> 
+            Klicken sie auf "Antwort überprüfen", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3>Frage 3</h3>
+        <p id="frage_3">Gegeben sei die Implikation: Wenn es regnet, dann ist die Straße nass. <br> Welche Teil dieser Implikation ist die notwendige Bedingung?</p>
+
+        <input type="radio" name="frage_3" value="Es regnet"> Es regnet<br>
+        <input type="radio" name="frage_3" value="Die Straße ist nass"> Die Straße ist nass<br>
+        <input type="radio" name="frage_3" value="Wenn es regnet, dann ist die Straße nass."> Wenn es regnet, dann ist die Straße nass.
+        <br>
+
+        <button id="button_3" onclick="submitSingleAntwort('frage_3', 'frage_div_3', document.querySelector('input[name=\'frage_3\']:checked').value)">Weiter</button>
+    </div>
+
+<!-- Multiple-Choice Fragen -->
+    <div id="frage_div_4" class="hidden">
+        <h2>Multiple-Choice Fragen</h2>
+        <p>Bei Multiple-Choice Fragen müssen sie eine oder mehrere der vorgegebenen Antworten auswählen. <br> 
+            Klicken sie auf "Weiter", um zur nächsten Frage zu gelangen und die Eingabe zu überprüfen.</p>
+        <h3>Frage 5</h3>
+        <p id="frage_4"> Gegeben seien die Aussagen: <br>
+            1. A <br>
+            2. &not;B <br>
+            3.  C<br>
+            Welche der folgenden Aussagen sind wahr?
+        </p>
+
+        <input type="checkbox" name="frage_4" value=" A &or; &not;B &and; C "> A &or; &not;B &and; C <br>
+        <input type="checkbox" name="frage_4" value="A &and; &not;B &and; C"> A &and; &not;B &and; C <br>
+        <input type="checkbox" name="frage_4" value="A &and; B &and; C"> A &and; B &and; C <br>
+        <input type="checkbox" name="frage_4" value="(A &rArr; B) &and; C"> (A &rArr; B) &and; C <br> 
+        <input type="checkbox" name="frage_4" value="(B &rArr; A) &and; C"> (B &rArr; A) &and; C
+        <br>
+
+        <button id="button_4" onclick="submitMultipleAntwort('frage_4', 'frage_div_4')">Weiter</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
