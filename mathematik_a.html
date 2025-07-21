@@ -18,7 +18,7 @@
         <h3> Frage 1</h3>
         <p id="frage_1">Wieso ist das Teilen durch 0 nicht definiert?</p>
         <textarea class="textarea" id="antwort_1" placeholder="Geben Sie Ihre Antwort hier ein... Sie müssen zwischen 10 und 1000 Zeichen eingeben."></textarea>
-        <button id="button_1" onclick="submitFreifeldAntwort(10,1000,'frage_1', document.getElementById('antwort_1').value, 'frage_div_1')">Nächste Frage</button>
+        <button id="button_1" onclick="submitFreifeldAntwort(10,1000,'frage_1', document.getElementById('antwort_1').value, 'frage_div_1')">Weiter</button>
     </div>
 
     <div id="frage_div_2" class="hidden">
@@ -30,7 +30,7 @@
         <p id="frage_2">Was ist eine Gruppe?</p>
 
         <textarea class="textarea" id="antwort_2" placeholder="Geben Sie Ihre Antwort hier ein... Sie müssen zwischen 5 und 1000 Zeichen eingeben."></textarea>
-        <button id="button_2" onclick="submitFreifeldAntwort(5,1000,'frage_2',document.getElementById('antwort_2').value,'frage_div_2')">Nächste Frage</button>
+        <button id="button_2" onclick="submitFreifeldAntwort(5,1000,'frage_2',document.getElementById('antwort_2').value,'frage_div_2')">Weiter</button>
     </div>
 
 
@@ -48,7 +48,7 @@
         <input type="radio" name="frage_3" value="1"> 1 <br>
         <br>
 
-        <button id="button_3" onclick="submitSingleAntwort('frage_3', 'frage_div_3', document.querySelector('input[name=\'frage_3\']:checked').value)">Nächste Frage</button>
+        <button id="button_3" onclick="submitSingleAntwort('frage_3', 'frage_div_3', document.querySelector('input[name=\'frage_3\']:checked').value)">Weiter</button>
     </div>
     
     <div id="frage_div_4" class="hidden">
@@ -64,7 +64,7 @@
         <input type="radio" name="frage_4" value="x"> x <br>
         <br>
 
-        <button id="button_4" onclick="submitSingleAntwort('frage_4', 'frage_div_4', document.querySelector('input[name=\'frage_4\']:checked').value)">Nächste Frage</button>
+        <button id="button_4" onclick="submitSingleAntwort('frage_4', 'frage_div_4', document.querySelector('input[name=\'frage_4\']:checked').value)">Weiter</button>
     </div>
 
 <!-- Multiple-Choice Fragen -->
@@ -81,7 +81,7 @@
         <input type="checkbox" name="frage_5" value="5"> 5 <br>
         <br>
 
-        <button id="button_5" onclick="submitMultipleAntwort('frage_5', 'frage_div_5')">Nächste Frage</button>
+        <button id="button_5" onclick="submitMultipleAntwort('frage_5', 'frage_div_5')">Weiter</button>
     </div>
 
     <div id="frage_div_6" class="hidden">
@@ -97,7 +97,7 @@
         <input type="checkbox" name="frage_6" value="1001"> 1001 <br>
         <br>
 
-        <button id="button_6" onclick="submitMultipleAntwort('frage_6', 'frage_div_6')">Nächste Frage</button>
+        <button id="button_6" onclick="submitMultipleAntwort('frage_6', 'frage_div_6')">Weiter</button>
     </div>
 
     <script src="script.js"></script>
