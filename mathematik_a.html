@@ -68,10 +68,22 @@
     </div>
 
 <!-- Multiple-Choice Fragen -->
-    <div>
+    <div id="frage_div_5" class="hidden">
+        <h2>Multiple-Choice Fragen</h2>
+        <h3>Frage 5</h3>
+        <p id="frage_5">Welche der folgenden Zahlen sind Primzahlen?</p>
 
+        <input type="checkbox" name="frage_5" value="0"> 0 <br>
+        <input type="checkbox" name="frage_5" value="1"> 1 <br>
+        <input type="checkbox" name="frage_5" value="2"> 2 <br>
+        <input type="checkbox" name="frage_5" value="3"> 3 <br>
+        <input type="checkbox" name="frage_5" value="4"> 4 <br>
+        <input type="checkbox" name="frage_5" value="5"> 5 <br>
+        <br>
+
+        <button id="button_5" onclick="submitMultipleAntwort('frage_5', 'frage_div_5')">Nächste Frage</button>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
