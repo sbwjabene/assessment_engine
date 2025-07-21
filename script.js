@@ -39,8 +39,8 @@ function nächsteFrage() {
 function submitFreifeldAntwort(minLength, maxLength, frageId, inputAnswer, frageDivId) { //min/max Length zum Validieren, frageId/inputAnswer für local storage, frageDivId für hide/show
     frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
     if (inputAnswer.length >= minLength && inputAnswer.length <= maxLength) { // Checke ob die Antwort valide ist
-        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speicher die Frage in local storage
-        localStorage.setItem(frageId, JSON.stringify(inputAnswer)); // Speicher die Antwort in local storage
+        localStorage.setItem("frage_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speicher die Frage in local storage
+        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(inputAnswer)); // Speicher die Antwort in local storage
         document.getElementById(frageDivId).classList.add("hidden"); // Füge die vorherige Frage zur hidden class hinzu
         nächsteFrage()
     } else {
@@ -51,8 +51,8 @@ function submitFreifeldAntwort(minLength, maxLength, frageId, inputAnswer, frage
 function submitSingleAntwort(frageId, frageDivId, inputAnswer) { // Funktion zum Absenden von Single-Choice Antworten
     frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
     if (inputAnswer) {
-        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speicher die Frage im local storage
-        localStorage.setItem(`${frageId}`, JSON.stringify(inputAnswer));
+        localStorage.setItem("frage_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speicher die Frage im local storage
+        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(inputAnswer));
         document.getElementById(frageDivId).classList.add("hidden");
         nächsteFrage();
     } else {
@@ -70,8 +70,8 @@ function submitMultipleAntwort(frageId, frageDivId) { // Funktion zum Absenden d
                 checkedValues.push(checkbox.value); // Added alle Werte der ausgewählten Checkboxen in das Array
             }
         });
-        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speichert Frage im local storage
-        localStorage.setItem(`${frageId}`, JSON.stringify(checkedValues)); // Speichert das Array der ausgewählten Werte im local storage
+        localStorage.setItem("frage_" + frageCounter, JSON.stringify(document.getElementById(frageId).innerText)); // Speichert Frage im local storage
+        localStorage.setItem("antwort_" + frageCounter, JSON.stringify(checkedValues)); // Speichert das Array der ausgewählten Werte im local storage
 
         document.getElementById(frageDivId).classList.add("hidden");
         nächsteFrage();
@@ -83,8 +83,8 @@ function submitMultipleAntwort(frageId, frageDivId) { // Funktion zum Absenden d
 function zeigeAntworten() { // Funktion um alle Antworten aus dem local storage anzuzeigen und danach zu löschen
     const frageCounter = JSON.parse(localStorage.getItem("localFrageCounter"));
     for (let i = 1; i <= frageCounter-1; i++) {
-        const frage = JSON.parse(localStorage.getItem("antwort_" + i));
-        const antwort = JSON.parse(localStorage.getItem("frage_" + i));
+        const frage = JSON.parse(localStorage.getItem("frage_" + i));
+        const antwort = JSON.parse(localStorage.getItem("antwort_" + i));
         const p = document.createElement("p");
         p.innerHTML = `${frage}: <br> ${antwort}`;
         document.body.appendChild(p); // ✅ Element zur Seite hinzufügen!
